@@ -8,7 +8,7 @@ interface StatsPanelProps {
 
 export function StatsPanel({ metrics }: StatsPanelProps) {
   return (
-    <section className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+    <section className="flex flex-col gap-3 md:sticky md:top-24 md:w-[320px] md:shrink-0 md:gap-4 md:overflow-y-auto md:hide-scrollbar">
       <MetricCard
         label="Prompt tokens"
         value={metrics.promptTokens.toString()}

@@ -1,4 +1,5 @@
 import { FormEvent, KeyboardEvent } from "react";
+import { ArrowRight } from "lucide-react";
 
 interface ChatInputProps {
   input: string;
@@ -16,7 +17,7 @@ export function ChatInput({ input, loading, onChange, onSubmit }: ChatInputProps
   }
 
   return (
-    <form onSubmit={onSubmit} className="fixed inset-x-0 bottom-0 z-30 p-4 md:left-[280px] md:p-6">
+    <form onSubmit={onSubmit} className="fixed inset-x-0 bottom-0 z-30 p-4 md:p-6">
       <div className="mx-auto max-w-4xl rounded-[28px] border border-white/10 bg-slate-950/80 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl">
         <div className="flex items-center gap-3">
           <label htmlFor="chat-input" className="sr-only">Escribe tu mensaje</label>
@@ -38,19 +39,7 @@ export function ChatInput({ input, loading, onChange, onSubmit }: ChatInputProps
             {loading ? (
               <span className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" aria-hidden="true" />
             ) : (
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h12" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
+              <ArrowRight className="h-6 w-6" strokeWidth={2.5} aria-hidden="true" />
             )}
           </button>
         </div>

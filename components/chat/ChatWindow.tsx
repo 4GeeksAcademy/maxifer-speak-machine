@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { ChatMessage } from "./types";
 import { EmptyState } from "./EmptyState";
 import { ErrorBanner } from "./ErrorBanner";
@@ -11,8 +14,14 @@ interface ChatWindowProps {
 }
 
 export function ChatWindow({ messages, loading, error }: ChatWindowProps) {
+  const endOfMessagesRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    endOfMessagesRef.current?.scrollIntoView({ block: "end" });
+  }, [messages, loading]);
+
   return (
-    <section className="mt-6 flex flex-1 flex-col rounded-[28px] border border-white/10 bg-slate-950/45 shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-sm">
+    <section className="flex h-full min-h-0 flex-1 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/45 shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-sm">
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-4 sm:px-6">
         <div>
           <h2 className="text-lg font-semibold text-slate-50">Chat Window</h2>
@@ -23,10 +32,11 @@ export function ChatWindow({ messages, loading, error }: ChatWindowProps) {
         </span>
       </div>
 
-      <div className="flex-1 space-y-6 px-4 py-5 sm:px-6">
+      <div className="hide-scrollbar flex-1 space-y-6 overflow-y-auto px-4 py-5 sm:px-6">
         {messages.length === 0 ? <EmptyState /> : messages.map((message) => <MessageBubble key={message.id} message={message} />)}
         {loading ? <LoadingMessage /> : null}
         {error ? <ErrorBanner error={error} /> : null}
+        <div ref={endOfMessagesRef} />
       </div>
     </section>
   );
