@@ -18,7 +18,7 @@ export function ChatInput({ input, loading, onChange, onSubmit }: ChatInputProps
   return (
     <form onSubmit={onSubmit} className="fixed inset-x-0 bottom-0 z-30 p-4 md:left-[280px] md:p-6">
       <div className="mx-auto max-w-4xl rounded-[28px] border border-white/10 bg-slate-950/80 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
+        <div className="flex items-center gap-3">
           <label htmlFor="chat-input" className="sr-only">Escribe tu mensaje</label>
           <textarea
             id="chat-input"
@@ -32,14 +32,28 @@ export function ChatInput({ input, loading, onChange, onSubmit }: ChatInputProps
           <button
             type="submit"
             disabled={loading || input.trim().length === 0}
-            className="inline-flex h-14 items-center justify-center rounded-2xl bg-blue-600 px-6 text-sm font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:bg-blue-900/60 disabled:text-blue-100/60"
+            aria-label={loading ? "Enviando mensaje" : "Enviar mensaje"}
+            className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-[0_8px_24px_rgba(37,99,235,0.45)] transition hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:bg-blue-900/60 disabled:text-blue-100/60"
           >
-            {loading ? "Pensando..." : "Enviar"}
+            {loading ? (
+              <span className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" aria-hidden="true" />
+            ) : (
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h12" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            )}
           </button>
         </div>
-        <p className="px-2 pt-3 text-center font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
-          La conversacion y las metricas se guardan automaticamente en este navegador.
-        </p>
       </div>
     </form>
   );
