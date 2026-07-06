@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-secondary": "#283044",
+                        "error": "#ffb4ab",
+                        "primary-container": "#2563eb",
+                        "on-primary-container": "#eeefff",
+                        "outline": "#8d90a0",
+                        "surface-container-highest": "#273647",
+                        "tertiary-fixed-dim": "#bcc7de",
+                        "tertiary-fixed": "#d8e3fb",
+                        "secondary": "#bec6e0",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#d4e4fa",
+                        "on-surface-variant": "#c3c6d7",
+                        "primary": "#b4c5ff",
+                        "surface-container-high": "#1c2b3c",
+                        "on-background": "#d4e4fa",
+                        "primary-fixed": "#dbe1ff",
+                        "tertiary-container": "#636e83",
+                        "surface-variant": "#273647",
+                        "on-error": "#690005",
+                        "on-tertiary": "#263143",
+                        "surface": "#051424",
+                        "on-tertiary-container": "#ecf1ff",
+                        "surface-dim": "#051424",
+                        "surface-container": "#122131",
+                        "on-secondary-fixed": "#131b2e",
+                        "tertiary": "#bcc7de",
+                        "outline-variant": "#434655",
+                        "inverse-on-surface": "#233143",
+                        "on-primary": "#002a78",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#dae2fd",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "on-secondary-container": "#adb4ce",
+                        "inverse-primary": "#0053db",
+                        "surface-bright": "#2c3a4c",
+                        "surface-container-low": "#0d1c2d",
+                        "secondary-container": "#3f465c",
+                        "background": "#051424",
+                        "on-surface": "#d4e4fa",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-primary-fixed": "#00174b",
+                        "surface-container-lowest": "#010f1f",
+                        "on-tertiary-fixed": "#111c2d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "margin-desktop": "32px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "max-width-content": "1280px",
+                        "xl": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Inter"],
+                        "label-md": ["JetBrains Mono"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-md": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/30">
+<!-- Top AppBar (Mobile Only via JSON logic but adapted for persistent shell) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10 shadow-sm">
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary tracking-tight">AI Assistant</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">delete</span>
+</button>
+</div>
+</header>
+<!-- Sidebar (Desktop Navigation) -->
+<aside class="hidden md:flex fixed inset-y-0 left-0 z-[60] h-full w-[280px] flex-col bg-surface-container dark:bg-surface-container shadow-xl">
+<div class="p-lg flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<p class="font-headline-md text-primary text-lg">AI Assistant</p>
+<p class="font-label-sm text-on-surface-variant">Pro Intelligence</p>
+</div>
+</div>
+<nav class="flex-1 mt-md px-md space-y-1">
+<div class="flex items-center gap-4 px-4 py-3 border-l-4 border-primary bg-primary/10 text-primary font-bold rounded-r-lg transition-all duration-300">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-body-md">Active Chat</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-md">Chat History</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-body-md">Analytics</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Model Settings</span>
+</div>
+</nav>
+<div class="mt-auto p-md border-t border-outline-variant/10">
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="A hyper-realistic studio portrait of a sophisticated tech professional wearing modern glasses, lit with subtle electric blue rim lighting against a deep slate background. The aesthetic is clean, corporate, and high-performance, reflecting a cutting-edge developer persona with high-key sharp focus and premium digital photography quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB26i1Q7B9ggGz_3LEeV_ZL8lyZa_C6HW3DIiT6A80QBJdRSltSVzK7v9XQqpXlwz_7VgJuvG3PzK3eEdOqoY9zqXF85mfS2Ys2D-ecX6D_kSo-OzM7fSO5yJ6_8g9Z02sIKm7W0sKwSyglFs4ZihZ9DlhMR6WJ_N9aOv58Fp9lpiB52vGA_Kdl5rhfB9HKRVQhx7ZsGzZyHerQunrgCvqX39FT9sSABtHLcDjeZZMo2rU254QYrsE"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="font-body-md font-bold truncate">Advanced User</p>
+<p class="font-label-sm text-on-surface-variant">Pro Plan</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">more_vert</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="min-h-screen md:ml-[280px] pt-20 pb-40 px-4 md:px-lg flex flex-col items-center">
+<div class="w-full max-w-max-width-content flex flex-col gap-8">
+<!-- Metrics Section -->
+<section class="flex overflow-x-auto pb-4 gap-4 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+<div class="flex-shrink-0 bg-surface-container p-md rounded-xl border border-outline-variant/10 shadow-sm flex flex-col gap-1 min-w-[140px]">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Prompt</span>
+<span class="font-headline-md text-primary">124</span>
+</div>
+<div class="flex-shrink-0 bg-surface-container p-md rounded-xl border border-outline-variant/10 shadow-sm flex flex-col gap-1 min-w-[140px]">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Completion</span>
+<span class="font-headline-md text-primary">256</span>
+</div>
+<div class="flex-shrink-0 bg-surface-container p-md rounded-xl border border-outline-variant/10 shadow-sm flex flex-col gap-1 min-w-[140px]">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Total</span>
+<span class="font-headline-md text-primary">380</span>
+</div>
+<div class="flex-shrink-0 bg-surface-container p-md rounded-xl border border-outline-variant/10 shadow-sm flex flex-col gap-1 min-w-[140px]">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Model</span>
+<span class="font-headline-md text-primary">GPT-4</span>
+</div>
+<div class="flex-shrink-0 bg-surface-container p-md rounded-xl border border-outline-variant/10 shadow-sm flex flex-col gap-1 min-w-[140px]">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Time</span>
+<span class="font-headline-md text-primary">1.2s</span>
+</div>
+</section>
+<!-- Chat Stream -->
+<div class="flex flex-col gap-6 w-full max-w-3xl mx-auto">
+<!-- AI Message -->
+<div class="flex flex-col gap-2 max-w-[85%] self-start">
+<div class="flex items-center gap-2 mb-1 px-1">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-label-sm text-on-surface-variant">AI Assistant</span>
+</div>
+<div class="bg-surface-container-high p-md rounded-2xl rounded-tl-none border border-outline-variant/10 text-on-surface shadow-sm">
+<p class="font-body-md leading-relaxed">Hola, ¿en qué puedo ayudarte hoy?</p>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex flex-col gap-2 max-w-[85%] self-end">
+<div class="flex items-center gap-2 mb-1 px-1 self-end">
+<span class="font-label-sm text-on-surface-variant">Tú</span>
+<span class="material-symbols-outlined text-primary-container text-sm" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div class="bg-primary-container p-md rounded-2xl rounded-tr-none text-on-primary-container shadow-md border border-white/10">
+<p class="font-body-md leading-relaxed font-medium">Necesito analizar estos datos de ventas.</p>
+</div>
+</div>
+<!-- AI Message -->
+<div class="flex flex-col gap-2 max-w-[85%] self-start">
+<div class="flex items-center gap-2 mb-1 px-1">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-label-sm text-on-surface-variant">AI Assistant</span>
+</div>
+<div class="bg-surface-container-high p-md rounded-2xl rounded-tl-none border border-outline-variant/10 text-on-surface shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary/30"></div>
+<p class="font-body-md leading-relaxed">Entendido. Por favor, sube el archivo o pega los datos aquí para comenzar el análisis técnico.</p>
+</div>
+</div>
+<!-- Contextual Hint/Bento Style Action -->
+<div class="grid grid-cols-2 gap-4 mt-4 w-full">
+<button class="bg-surface-container-low border border-outline-variant/10 hover:bg-surface-container-high p-4 rounded-xl flex flex-col gap-2 items-start transition-all group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">upload_file</span>
+<span class="font-label-sm text-on-surface text-left">Subir Excel o CSV</span>
+</button>
+<button class="bg-surface-container-low border border-outline-variant/10 hover:bg-surface-container-high p-4 rounded-xl flex flex-col gap-2 items-start transition-all group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">content_paste</span>
+<span class="font-label-sm text-on-surface text-left">Pegar desde Portapapeles</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Input Area -->
+<div class="fixed bottom-0 left-0 md:left-[280px] right-0 z-50 p-4 md:p-lg">
+<div class="max-w-3xl mx-auto">
+<div class="bg-surface/90 backdrop-blur-md border border-outline-variant/20 rounded-2xl shadow-2xl p-2 flex items-end gap-2">
+<button class="p-3 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<div class="flex-1 min-h-[48px] flex items-center">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-body-md py-3 px-2 resize-none max-h-40 no-scrollbar" placeholder="Escribe un mensaje..." rows="1"></textarea>
+</div>
+<div class="flex gap-1 items-center pb-1 pr-1">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">mic</span>
+</button>
+<button class="bg-primary-container text-on-primary-container rounded-xl p-3 shadow-lg active:scale-95 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<p class="text-center mt-3 font-label-sm text-on-surface-variant/60">
+                La IA puede cometer errores. Considera verificar la información importante.
+            </p>
+</div>
+</div>
+<!-- Mobile Bottom Nav (Suppressed based on context but included for structure if needed) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface/90 backdrop-blur-md border-t border-outline-variant/10 hidden">
+<div class="bg-primary-container text-on-primary-container rounded-xl p-2 scale-110 transition-transform">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<div class="text-on-surface-variant p-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div class="text-on-surface-variant p-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">database</span>
+</div>
+<div class="text-on-surface-variant p-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+</div>
+</nav>
+<script>
+        // Auto-expanding textarea logic
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        // Simple animation for new message appearance
+        document.addEventListener('DOMContentLoaded', () => {
+            const messages = document.querySelectorAll('.chat-stream > div');
+            messages.forEach((msg, index) => {
+                msg.style.opacity = '0';
+                msg.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    msg.style.transition = 'all 0.4s ease-out';
+                    msg.style.opacity = '1';
+                    msg.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        });
+    </script>
+</body></html>
